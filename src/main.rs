@@ -22,7 +22,6 @@ fn search_dir(path: &Path, recusive: bool, prefix: String) -> Result<(), Box<dyn
                     if recusive {
                         Some(dir_entry)
                     } else {
-                        // if dir_entry.file_name().to_str()?.starts_with(".") {
                         if dir_entry.path().is_dir() {
                             return None;
                         }
