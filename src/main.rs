@@ -54,14 +54,14 @@ fn output(path: &Path) -> io::Result<String> {
     let filename = path.file_name().unwrap().to_str().unwrap();
     let symlink = match fs::read_link(path) {
         Ok(v) => v,
-        Err(_err) => PathBuf::new(),
+        Err(_) => PathBuf::new(),
     };
 
     if symlink.to_str().unwrap().is_empty() {
-        return Ok(filename.to_string())
+        Ok(filename.to_string())
     } else {
-        return Ok(format!("{} -> {}", filename, symlink.to_str().unwrap()))
-    };
+        Ok(format!("{} -> {}", filename, symlink.to_str().unwrap()))
+    }
 }
 
 fn run(recusive: bool) -> Result<(), Box<dyn Error>> {
