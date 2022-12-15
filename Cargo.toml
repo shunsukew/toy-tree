@@ -1,0 +1,8 @@
+[package]
+name = "toy-tree"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+colored = "2.0.0"
+clap = { version = "4.0.29", features = ["derive", "env"] }
